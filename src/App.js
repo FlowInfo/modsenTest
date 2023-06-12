@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+// function clearInput() {
+//   var input = document.getElementById('searchInput');
+//   input.value = '';
+// }
+
+
+class Header extends React.Component {
+  render() {
+    return (<div className="name">
+      <header className="header">
+
+        <div className="head">
+          <h1>Search for books</h1>
+        </div>
+
+        <div className="search">
+          <input type = "text" id = "searchInput" placeholder = "Enter text to serch" />
+          <button id = "searchButton">button</button>
+        </div>
+
+        <div className="tabsContainer">
+          <div className="category">Categories</div>
+        
+          <select className = "Category">
+            <option>all</option>
+          </select>
+
+          <div className="sort">Sorting by</div>
+          <select className = "Sort">
+          <option>relevance</option>
+
+          </select>
+        </div>
+        
       </header>
     </div>
-  );
+  
+    )
+  }
 }
 
-export default App;
+
+export default Header;
