@@ -3,8 +3,9 @@ import React from "react"
 class Input extends React.Component {
      waitingKeyPress = (event) => {
         if (event.key === 'Enter') {
-            const searchValue = event.target.value; 
-            const searchUrl =  `https://www.googleapis.com/books/v1/volumes?q=${searchValue}&key=AIzaSyByMtJ1mpylPuE9Yr9HreMl5Bxzr7FTTS0`;
+            let searchValue = event.target.value; 
+            searchValue = searchValue.replace(/ /g,'');
+            const searchUrl = `https://www.googleapis.com/books/v1/volumes?q=${searchValue}&key=AIzaSyByMtJ1mpylPuE9Yr9HreMl5Bxzr7FTTS0`;
 
             console.log('Измененный URL:', searchUrl);
         }
