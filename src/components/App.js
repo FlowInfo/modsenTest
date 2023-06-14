@@ -17,11 +17,10 @@ class Header extends React.Component {
 
         <Container />
 
-        
       </header>
+
       <BookList />
     </div>
-  
     )
   }
 }

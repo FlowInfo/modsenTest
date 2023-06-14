@@ -69,4 +69,18 @@ button {
 .sort {
     margin-right: 5px;
 }
+
+
+.book-list {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .book-list img {
+    border: 3px solid red;
+    width: 110px;
+    height: auto;
+  }
   
