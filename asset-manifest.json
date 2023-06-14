@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/modsenTest/static/css/main.0e5794ee.css",
+    "main.js": "/modsenTest/static/js/main.c73dc35c.js",
+    "index.html": "/modsenTest/index.html",
+    "main.0e5794ee.css.map": "/modsenTest/static/css/main.0e5794ee.css.map",
+    "main.c73dc35c.js.map": "/modsenTest/static/js/main.c73dc35c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e5794ee.css",
+    "static/js/main.c73dc35c.js"
+  ]
+}
