@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/modsenTest/static/css/main.777dbd96.css",
-    "main.js": "/modsenTest/static/js/main.cf03ca48.js",
+    "main.js": "/modsenTest/static/js/main.3028af55.js",
     "index.html": "/modsenTest/index.html",
     "main.777dbd96.css.map": "/modsenTest/static/css/main.777dbd96.css.map",
-    "main.cf03ca48.js.map": "/modsenTest/static/js/main.cf03ca48.js.map"
+    "main.3028af55.js.map": "/modsenTest/static/js/main.3028af55.js.map"
   },
   "entrypoints": [
     "static/css/main.777dbd96.css",
-    "static/js/main.cf03ca48.js"
+    "static/js/main.3028af55.js"
   ]
 }
