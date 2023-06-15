@@ -7,7 +7,11 @@ function Input() {
       searchValue = searchValue.replace(/ /g,'');
       const searchUrl = `https://www.googleapis.com/books/v1/volumes?q=${searchValue}&key=AIzaSyByMtJ1mpylPuE9Yr9HreMl5Bxzr7FTTS0`;
 
-      console.log('Измененный URL:', searchUrl);
+      fetch(searchUrl)
+        .then(response => response.json())
+        .then(jsonData => {
+          console.log('Book Data:', jsonData);
+        })
     }
   };
 
@@ -25,3 +29,4 @@ function Input() {
 }
 
 export default Input;
+
