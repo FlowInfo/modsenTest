@@ -23,7 +23,7 @@ function Input() {
         placeholder="Enter text to search"  
         onKeyDown={waitingKeyPress}
       />
-      <button id="searchButton">button</button>
+      <button id="searchButton">search</button>
     </div>
   );
 }
