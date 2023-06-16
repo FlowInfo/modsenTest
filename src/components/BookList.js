@@ -10,7 +10,7 @@ const BookList = () => {
 
   const fetchBooks = async () => {
     const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=js&startIndex=${(page - 1) * 10}&maxResults=10&key=AIzaSyByMtJ1mpylPuE9Yr9HreMl5Bxzr7FTTS0`
+      `https://www.googleapis.com/books/v1/volumes?q=HTML&startIndex=${(page - 1) * 10}&maxResults=10&key=AIzaSyByMtJ1mpylPuE9Yr9HreMl5Bxzr7FTTS0`
     );
     const jsonData = await response.json();
     setBooks((prevBooks) => [...prevBooks, ...jsonData.items]);
@@ -24,11 +24,21 @@ const BookList = () => {
     <div className="book-list-container">
       <div className="book-list">
         {books.map((book, index) => (
-          <img
-            key={index}
-            src={book?.volumeInfo?.imageLinks?.thumbnail || ""}
-            alt="Book Cover"
-          />
+          <div key={index} className="book-card">
+            <img
+              src={book?.volumeInfo?.imageLinks?.thumbnail || ""}
+              alt="Book Cover"
+            />
+            <div className="book-info">
+              <h3 className="book-title">{book?.volumeInfo?.title || ""}</h3>
+              <p className="book-category">
+                Category: {book?.volumeInfo?.categories?.[0] || ""}
+              </p>
+              <p className="book-authors">
+                Authors: {book?.volumeInfo?.authors?.join(", ") || ""}
+              </p>
+            </div>
+          </div>
         ))}
       </div>
       <div className="load-more">
@@ -39,5 +49,4 @@ const BookList = () => {
 };
 
 export default BookList;
-
 
