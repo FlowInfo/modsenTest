@@ -65,8 +65,8 @@ const App = () => {
           />
         </div> 
         <Routes>
-          <Route path="/"element={<BookList books={books} totalBooks={totalBooks} handleLoadMore={handleLoadMore} />}/>
-          <Route path="/books/:id"element={<BookDetail books={books} />}/>
+          <Route path="/modsenTest"element={<BookList books={books} totalBooks={totalBooks} handleLoadMore={handleLoadMore} />}/>
+          <Route path="/modsenTest/books/:id"element={<BookDetail books={books} />}/>
         </Routes>
       </div>
     </Router>
