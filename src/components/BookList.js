@@ -1,52 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
+import BookCard from "./BookCard";
+import Pagination from "./Pagination";
 
-const BookList = () => {
-  const [books, setBooks] = useState([]);
-  const [page, setPage] = useState(1);
 
-  useEffect(() => {
-    fetchBooks();
-  }, [page]); 
 
-  const fetchBooks = async () => {
-    const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=HTML&startIndex=${(page - 1) * 10}&maxResults=10&key=AIzaSyByMtJ1mpylPuE9Yr9HreMl5Bxzr7FTTS0`
-    );
-    const jsonData = await response.json();
-    setBooks((prevBooks) => [...prevBooks, ...jsonData.items]);
-  };
 
-  const handleLoadMore = () => {
-    setPage((prevPage) => prevPage + 1);
-  };
+const BookList = ({ books, totalBooks , handleLoadMore}) => {
+    const [loading, setLoading] = useState(false);
 
-  return (
-    <div className="book-list-container">
+    const handleButtonClick = () => {
+        handleLoadMore();
+        setLoading(true);
+    }
+
+    useEffect(() => {
+        setLoading(false);
+   } ,[books]
+    )
+    return (
+      <>
       <div className="book-list">
-        {books.map((book, index) => (
-          <div key={index} className="book-card">
-            <img
-              src={book?.volumeInfo?.imageLinks?.thumbnail || ""}
-              alt="Book Cover"
-            />
-            <div className="book-info">
-              <h3 className="book-title">{book?.volumeInfo?.title || ""}</h3>
-              <p className="book-category">
-                Category: {book?.volumeInfo?.categories?.[0] || ""}
-              </p>
-              <p className="book-authors">
-                Authors: {book?.volumeInfo?.authors?.join(", ") || ""}
-              </p>
-            </div>
-          </div>
-        ))}
+        {totalBooks > 0 && (
+          <p className="totalBooks">Found {totalBooks} results </p>
+        )}
+        <div className="bookGrid">
+          {books.map((book, index) => (
+            <BookCard key={index} book={book} />
+          ))}
+        </div>
       </div>
-      <div className="load-more">
-        <button className="buttonLoad" onClick={handleLoadMore}>Load More</button>
-      </div>
-    </div>
-  );
-};
+      {loading && <p className="loading">Loading...</p>}
 
-export default BookList;
+      {!loading && books.length < totalBooks && (
+          <Pagination handleLoadMore={handleButtonClick} />
+        )}
+      </>
+    );
+  };
 
+
+
+export default BookList
