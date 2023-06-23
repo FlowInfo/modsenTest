@@ -1,6 +1,6 @@
 {
   "homepage": "http://FlowInfo.github.io/modsenTest",
-  "name": "mp",
+  "name": "modsen-test",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
