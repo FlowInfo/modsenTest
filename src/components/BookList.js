@@ -4,24 +4,23 @@ import Pagination from "./Pagination";
 
 
 
+const BookList = ({ books, totalBooks, handleLoadMore }) => {
+  const [loading, setLoading] = useState(false);
 
-const BookList = ({ books, totalBooks , handleLoadMore}) => {
-    const [loading, setLoading] = useState(false);
+  const handleButtonClick = () => {
+    handleLoadMore();
+    setLoading(true);
+  }
 
-    const handleButtonClick = () => {
-        handleLoadMore();
-        setLoading(true);
-    }
+  useEffect(() => {
+    setLoading(false);
+  }, [books]);
 
-    useEffect(() => {
-        setLoading(false);
-   } ,[books]
-    )
-    return (
-      <>
+  return (
+    <>
       <div className="book-list">
         {totalBooks > 0 && (
-          <p className="totalBooks">Found {totalBooks} results </p>
+          <p className="totalBooks">Found {totalBooks} results</p>
         )}
         <div className="bookGrid">
           {books.map((book, index) => (
@@ -32,12 +31,10 @@ const BookList = ({ books, totalBooks , handleLoadMore}) => {
       {loading && <p className="loading">Loading...</p>}
 
       {!loading && books.length < totalBooks && (
-          <Pagination handleLoadMore={handleButtonClick} />
-        )}
-      </>
-    );
-  };
+        <Pagination handleLoadMore={handleButtonClick} />
+      )}
+    </>
+  );
+};
 
-
-
-export default BookList
+export default BookList;

@@ -10,12 +10,12 @@ const SearchBar = ({ handleSearch }) => {
   
     const handleKeyPress = (e) => {
       if (e.key === 'Enter') {
-        handleSearch(searchQuery);
+        handleSearch(searchQuery.trim()); 
       }
     };
   
     const handleSearchClick = () => {
-      handleSearch(searchQuery);
+      handleSearch(searchQuery.trim()); 
     };
   
     return (
