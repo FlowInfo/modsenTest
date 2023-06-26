@@ -14,6 +14,10 @@ const BookDetail = ({ books }) => {
     }
   
     const { volumeInfo } = selectedBook;
+
+      const goBack = () => {
+        window.history.back();
+      };
   
     return (
       <div className="bookDetail">
@@ -21,7 +25,7 @@ const BookDetail = ({ books }) => {
           <img className = "bookCoverImage" src={volumeInfo?.imageLinks?.thumbnail || backupPicture} alt="bookCover" />
         </div> 
         <div className="cardInfo">
-          <h3>{volumeInfo?.title || ""}</h3>  
+          <h3>{volumeInfo?.title || ""}</h3> 
           <p className="cardCategory">
             {volumeInfo?.categories?.join(", ") || "N/A"}
           </p>
@@ -31,6 +35,9 @@ const BookDetail = ({ books }) => {
           <p className="cardDescription">
             {volumeInfo?.description || "N/A"}
           </p>
+          <div className="Back">
+            <button className="backButton" onClick={goBack}> Back </button>
+          </div>
         </div> 
       </div>
     );

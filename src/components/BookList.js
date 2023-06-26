@@ -18,7 +18,7 @@ const BookList = ({ books, totalBooks, handleLoadMore }) => {
 
   return (
     <>
-      <div className="book-list">
+      <div className="bookList">
         {totalBooks > 0 && (
           <p className="totalBooks">Found {totalBooks} results</p>
         )}
