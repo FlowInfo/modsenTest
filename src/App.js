@@ -25,7 +25,7 @@ const App = () => {
       setTotalBooks(0);
       fetchBooks();
     }
-  }, [searchQuery]); //category, sorting
+  }, [searchQuery, category, sorting]); //category, sorting
 
   const handleSearch = (query) => {
     if (query !== '') {
@@ -37,10 +37,15 @@ const App = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes?q=intitle:${searchQuery}&maxResults=30&startIndex=${books.length}&printType=books&key=${API_KEY}`
+        `https://www.googleapis.com/books/v1/volumes?q=intitle:${searchQuery}&maxResults=30&startIndex=${books.length}&printType=books&orderBy=${sorting}&subject=${category}&key=${API_KEY}`
       );
-      setBooks((prevBooks) => [...prevBooks, ...response.data.items]);
-      setTotalBooks(response.data.totalItems);
+      if (response.data.items) {
+        setBooks((prevBooks) => [...prevBooks, ...response.data.items]);
+        setTotalBooks(response.data.totalItems);
+      } else {
+        setBooks([]);
+        setTotalBooks(0);
+      }
     } catch (error) {
       console.log('Error fetching books:', error);
     }

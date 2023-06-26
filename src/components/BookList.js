@@ -18,15 +18,17 @@ const BookList = ({ books, totalBooks, handleLoadMore }) => {
 
   return (
     <>
-      <div className="bookList">
-        {totalBooks > 0 && (
+<div className="bookList">
+        {totalBooks > 0 ? (
           <p className="totalBooks">Found {totalBooks} results</p>
+        ) : (
+          <p className="totalBooks">Found 0 results</p>
         )}
-        <div className="bookGrid">
-          {books.map((book, index) => (
-            <BookCard key={index} book={book} />
-          ))}
-        </div>
+          <div className="bookGrid">
+            {books.map((book, index) => (
+              <BookCard key={index} book={book} />
+            ))}
+          </div>
       </div>
       {loading && <p className="loading">Loading...</p>}
 
