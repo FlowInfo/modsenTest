@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/modsenTest/static/css/main.9904b9c9.css",
-    "main.js": "/modsenTest/static/js/main.72ac54c2.js",
+    "main.css": "/modsenTest/static/css/main.5f111c31.css",
+    "main.js": "/modsenTest/static/js/main.4c154218.js",
     "static/js/787.1fd1162f.chunk.js": "/modsenTest/static/js/787.1fd1162f.chunk.js",
     "static/media/header.avif": "/modsenTest/static/media/header.d9923f7ee799381e63cd.avif",
     "static/media/noImage.png": "/modsenTest/static/media/noImage.97976abd9ef94489778f.png",
     "index.html": "/modsenTest/index.html",
-    "main.9904b9c9.css.map": "/modsenTest/static/css/main.9904b9c9.css.map",
-    "main.72ac54c2.js.map": "/modsenTest/static/js/main.72ac54c2.js.map",
+    "main.5f111c31.css.map": "/modsenTest/static/css/main.5f111c31.css.map",
+    "main.4c154218.js.map": "/modsenTest/static/js/main.4c154218.js.map",
     "787.1fd1162f.chunk.js.map": "/modsenTest/static/js/787.1fd1162f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9904b9c9.css",
-    "static/js/main.72ac54c2.js"
+    "static/css/main.5f111c31.css",
+    "static/js/main.4c154218.js"
   ]
 }
