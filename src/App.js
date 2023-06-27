@@ -18,7 +18,6 @@ const App = () => {
   const [totalBooks, setTotalBooks] = useState(0);
   const [loading, setLoading] = useState(false);
 
-
   useEffect(() => {
     if (searchQuery !== "" ) {
       setBooks([]);
@@ -33,24 +32,34 @@ const App = () => {
     }
   };
 //&orderBy=${sorting}&printType=books&subject=${category}
-  const fetchBooks = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes?q=intitle:${searchQuery}&maxResults=30&startIndex=${books.length}&printType=books&orderBy=${sorting}&subject=${category}&key=${API_KEY}`
-      );
-      if (response.data.items) {
-        setBooks((prevBooks) => [...prevBooks, ...response.data.items]);
-        setTotalBooks(response.data.totalItems);
-      } else {
-        setBooks([]);
-        setTotalBooks(0);
-      }
-    } catch (error) {
-      console.log('Error fetching books:', error);
+const fetchBooks = async () => {
+  setLoading(true);
+  try {
+    const response = await axios.get(
+      `https://www.googleapis.com/books/v1/volumes`,
+      {
+        params: {
+          q: `intitle:${searchQuery}${category !== 'all' ? `+subject:${category}` : ''}`,
+          maxResults: 30,
+          startIndex: books.length,
+          printType: 'books',
+          orderBy: sorting,
+          key: API_KEY,
+        },
+      },
+    );
+    if (response.data.items) {
+      setBooks((prevBooks) => [...prevBooks, ...response.data.items]);
+      setTotalBooks(response.data.totalItems);
+    } else {
+      setBooks([]);
+      setTotalBooks(0);
     }
-    setLoading(false);
-  };
+  } catch (error) {
+    console.log('Error fetching books:', error);
+  }
+  setLoading(false);
+};
 
   const handleLoadMore = () => {
     fetchBooks();
