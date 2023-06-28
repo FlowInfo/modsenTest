@@ -45,7 +45,6 @@ const fetchBooks = async () => {
   try {
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${params.q}&maxResults=30&startIndex=${params.startIndex}&orderBy=${params.orderBy}&key=${params.key}`)
     const jsonData = await response.json();
-    console.log(jsonData);
 
     if (jsonData.items) {
       setBooks((prevBooks) => [...prevBooks, ...jsonData.items]);
