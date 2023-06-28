@@ -7,6 +7,10 @@ import Pagination from "./Pagination";
 const BookList = ({ books, totalBooks, handleLoadMore }) => {
   const [loading, setLoading] = useState(false);
 
+  const uniqueBooks = books.filter((book, index, arr) => {
+    return arr.findIndex((b) => b.id === book.id) === index;
+  });
+
   const handleButtonClick = () => {
     handleLoadMore();
     setLoading(true);
@@ -25,8 +29,8 @@ const BookList = ({ books, totalBooks, handleLoadMore }) => {
           <p className="totalBooks">Found 0 results</p>
         )}
           <div className="bookGrid">
-            {books.map((book, index) => (
-              <BookCard key={index} book={book} />
+            {uniqueBooks.map((book) => (
+              <BookCard key={book.id} book={book} />
             ))}
           </div>
       </div>
